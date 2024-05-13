@@ -3,15 +3,11 @@ package src.main;
 import src.main.inputs.KeyboardInputs;
 import src.main.inputs.MouseInputs;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
 
-import static src.main.utils.Constants.PlayerConstants.*;
-import static src.main.utils.Constants.Directions.*;
+import static src.main.Game.GAME_HEIGHT;
+import static src.main.Game.GAME_WIDTH;
 
 
 public class GamePanel extends JPanel {
@@ -30,7 +26,7 @@ public class GamePanel extends JPanel {
     }
 
     private void setPanelSize() {
-        Dimension dim = new Dimension(1280, 800);
+        Dimension dim = new Dimension(GAME_WIDTH, GAME_HEIGHT);
         this.setMinimumSize(dim);
         this.setPreferredSize(dim);
         this.setMaximumSize(dim);
