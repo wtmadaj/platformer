@@ -1,6 +1,6 @@
 package src.main;
 
-import src.gameStates.GameStates;
+import src.gameStates.GameState;
 import src.gameStates.Menu;
 import src.gameStates.Playing;
 
@@ -45,20 +45,23 @@ public class Game implements Runnable {
     }
 
     public void update() {
-        switch (GameStates.state) {
+        switch (GameState.state) {
             case MENU:
                 menu.update();
                 break;
             case PLAYING:
                 playing.update();
                 break;
+            case OPTIONS:
+            case QUIT:
             default:
+                System.exit(0);
                 break;
         }
     }
 
     public void render(Graphics g) {
-        switch (GameStates.state) {
+        switch (GameState.state) {
             case MENU:
                 menu.draw(g);
                 break;
@@ -112,7 +115,7 @@ public class Game implements Runnable {
     }
 
     public void windowFocusLost() {
-        if(GameStates.state == GameStates.PLAYING) {
+        if(GameState.state == GameState.PLAYING) {
             playing.getPlayer().resetDirBooleans();
         }
     }
