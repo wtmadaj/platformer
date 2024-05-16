@@ -1,7 +1,5 @@
 package src.ui;
 
-import src.main.utils.LoadSave;
-
 import java.awt.*;
 
 public class PauseButton {
